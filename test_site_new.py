@@ -221,7 +221,7 @@ def test_second_search(browser, curr_base_url, place, checkin_date, checkout_dat
     assert vcheckout == checkout_date
     assert vchildren == children
     assert vadults == adults
-    reservation_listing.set_phone_input(phone)
+    reservation_listing.set_phone_input(phone) # not always appears on page, may fail
     assert reservation_listing.get_phone_input() == phone[1:]
 
     assert not assertions, f"Listing validation errors: {assertions}"
