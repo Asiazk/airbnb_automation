@@ -9,7 +9,6 @@ class HomePage:
         self.search_button = page.locator('[data-testid="structured-search-input-search-button"]')
         self.base_url = base_url
         self.checkin_button = page.locator('[data-testid="structured-search-input-field-split-dates-0"]')
-        # self.checkin_value = page.locator('[data-state--date-string="2025-06-02"]')
         self.checkout_button = page.locator('[data-testid="structured-search-input-field-split-dates-1"]')
         self.guest_box = page.locator('[data-testid="structured-search-input-field-guests-button"]')
         self.increase_adult = page.locator('[data-testid="stepper-adults-increase-button"]')
