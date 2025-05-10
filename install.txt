@@ -4,3 +4,5 @@ pip install pytest
 pip install pytest-playwright
 pip install playwright
 playwright install
+
+to run from cmd from downloaded repo folder: pytest -s -vv
