@@ -31,7 +31,7 @@ def get_listing_price(result):
     # need to check if rating exists in current result
     if price_text_res:
         price_text_res = price_text_res.inner_text()
-        print(f'{price_text_res=}')
+        # print(f'{price_text_res=}')
         matches = re.findall(r'\d[\d,]*', price_text_res)
         numbers = [int(m.replace(',', '')) for m in matches]
         curr_price = min(numbers)
