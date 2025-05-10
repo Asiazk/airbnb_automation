@@ -1,3 +1,6 @@
+(windows): download python version Python 3.12.5+ and make sure python PATH is defined in system variables
+
+pip install pytest
 pip install pytest-playwright
 pip install playwright
 playwright install
