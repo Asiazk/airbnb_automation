@@ -167,10 +167,10 @@ def test_second_search(browser, curr_base_url, place, checkin_date, checkout_dat
                 assertions.append(f"Error: expected location: {place}, got {validate_location}, at url: {result_url}")
 
             vadults, vchildren = new_listing_page.get_guests(children != 0)
-            assert vadults == adults
+            curr_assert = vadults == adults
             if not curr_assert:
                 assertions.append(f"Error: expected adults: {adults}, got {vadults}, at url: {result_url}")
-            assert  vchildren == children
+            curr_assert = vchildren == children
             if not curr_assert:
                 assertions.append(f"Error: expected children: {children}, got {vchildren}, at url: {result_url}")
 
