@@ -56,24 +56,17 @@ class ResultsPage:
     def load_page(self, url):
         self.page.goto(url)
 
-    # def set_page(self, new_page: Page):
-    #     self.page = new_page
-
     def get_results(self):
         self.page.wait_for_selector(self.results_selector)
         return self.page.query_selector_all(self.results_selector)
 
     def get_next_results_page_url(self):
-        # try:
-        #     self.page.wait_for_selector(self.next_button_selector, timeout=5000)
-        # except TimeoutError:
-        #     print("Reached last page")
         next_buttons = self.page.query_selector_all(self.next_button_selector)
         if next_buttons:
             last_next_button = next_buttons[-1]
             if last_next_button:
                 next_page_url = last_next_button.get_attribute('href')
-                print(f'{next_page_url=}')
+                # print(f'{next_page_url=}')
                 return next_page_url
         else:
             next_buttons = self.page.query_selector_all('button[aria-label="Next"]')
