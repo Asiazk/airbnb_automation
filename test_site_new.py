@@ -5,7 +5,6 @@ import search_utils
 from listing_result import ListingResult, BookingBox
 from playwright.sync_api import Page, expect, sync_playwright
 
-# probably need parametrize or conftest.py
 
 @pytest.mark.parametrize(
     "curr_base_url, place, checkin_date, checkout_date, adults, children",
@@ -92,9 +91,9 @@ def test_search(browser, curr_base_url, place, checkin_date, checkout_date, adul
                 if curr_price < cheapest_price_result.price_per_night:
                     cheapest_price_result = curr_result
 
-            print(f'{result_url=}')
-            print(curr_price)
-            print(curr_rate)
+            # print(f'{result_url=}')
+            # print(curr_price)
+            # print(curr_rate)
 
         next_results_url = new_results_page.get_next_results_page_url()
         if not next_results_url:
@@ -194,9 +193,9 @@ def test_second_search(browser, curr_base_url, place, checkin_date, checkout_dat
                 if curr_rate > highest_rate_result.rating:
                     highest_rate_result = curr_result
 
-            print(f'{result_url=}')
-            print(curr_price)
-            print(curr_rate)
+            # print(f'{result_url=}')
+            # print(curr_price)
+            # print(curr_rate)
 
         next_results_url = new_results_page.get_next_results_page_url()
         if not next_results_url:
@@ -208,7 +207,6 @@ def test_second_search(browser, curr_base_url, place, checkin_date, checkout_dat
         assert prev_result_url != results_page.url
         new_results_page = ResultsPage(results_page, home.base_url)
 
-    # highest_rate_result = ListingResult()
     listing_page.goto(highest_rate_result.url, wait_until="load")
     search_utils.get_listing_details(highest_rate_result, "Highest Rate Result")
     highest_rate_listing_page = ListingPage(listing_page, home.base_url)
