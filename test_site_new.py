@@ -64,10 +64,10 @@ def test_search(browser, curr_base_url, place, checkin_date, checkout_date, adul
             vadults, vchildren = new_listing_page.get_guests(children != 0)
             curr_assert = vadults == adults
             if not curr_assert:
-                assertions.append(f"Error: expected adults: {adults}, got {vadults}")
+                assertions.append(f"Error: expected adults: {adults}, got {vadults}, at url: {result_url}")
             curr_assert = vchildren == children
             if not curr_assert:
-                assertions.append(f"Error: expected children: {children}, got {vchildren}")
+                assertions.append(f"Error: expected children: {children}, got {vchildren}, at url: {result_url}")
 
             validate_checkin, validate_checkout = new_listing_page.get_listing_dates()
             curr_assert = checkin_date in validate_checkin
@@ -169,10 +169,10 @@ def test_second_search(browser, curr_base_url, place, checkin_date, checkout_dat
             vadults, vchildren = new_listing_page.get_guests(children != 0)
             assert vadults == adults
             if not curr_assert:
-                assertions.append(f"Error: expected adults: {adults}, got {vadults}")
+                assertions.append(f"Error: expected adults: {adults}, got {vadults}, at url: {result_url}")
             assert  vchildren == children
             if not curr_assert:
-                assertions.append(f"Error: expected children: {children}, got {vchildren}")
+                assertions.append(f"Error: expected children: {children}, got {vchildren}, at url: {result_url}")
 
 
             validate_checkin, validate_checkout = new_listing_page.get_listing_dates()
